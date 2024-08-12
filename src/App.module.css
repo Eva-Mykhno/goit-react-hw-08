@@ -1,0 +1,21 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wrapper {
+  padding: 40px;
+  display: flex;
+  background-color: #90e366;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.title {
+  font-size: 60px;
+  font-weight: 800;
+  color: #22640b;
+}
