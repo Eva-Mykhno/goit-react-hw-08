@@ -1,5 +1,4 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
 import { swaggerApi } from "../../config/swaggerApi";
 
 export const fetchContacts = createAsyncThunk(

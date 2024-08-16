@@ -8,13 +8,16 @@ const UserMenu = () => {
   };
 
   return (
-    <ul>
-      <li className={s.item}>
-        <NavLink className={buildLinkClass} to="contacts">
-          Contacts
-        </NavLink>
-      </li>
-    </ul>
+    <div>
+      <h1 className={s.title}>Phonebook</h1>
+      <ul>
+        <li className={s.item}>
+          <NavLink className={buildLinkClass} to="contacts">
+            Contacts
+          </NavLink>
+        </li>
+      </ul>
+    </div>
   );
 };
 
