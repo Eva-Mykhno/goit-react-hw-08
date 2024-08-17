@@ -9,7 +9,6 @@ const UserMenu = () => {
 
   return (
     <div>
-      <h1 className={s.title}>Phonebook</h1>
       <ul>
         <li className={s.item}>
           <NavLink className={buildLinkClass} to="contacts">

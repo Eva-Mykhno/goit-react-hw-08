@@ -1,6 +1,12 @@
 import s from "./App.module.css";
 import { Route, Routes } from "react-router-dom";
-import { lazy } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getMeThunk } from "./redux/auth/operations";
+import PrivateRoute from "./Routes/PrivateRoute";
+import RestricteRoute from "./Routes/RestrictedRoute";
+import { selectIsRefreshing } from "./redux/auth/selectors";
+import Loader from "./components/Loader/Loader";
 
 const Layout = lazy(() => import("./components/Layout/Layout"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
@@ -12,20 +18,49 @@ const ContactsPage = lazy(() => import("./pages/ContactsPage/ContactsPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 const App = () => {
-  return (
-    <>
-      <div className={s.wrapper}>
+  const isRefreshing = useSelector(selectIsRefreshing);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getMeThunk());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <Loader />
+  ) : (
+    <div className={s.wrapper}>
+      <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
-            <Route path="/contacts" element={<ContactsPage />} />
-            <Route path="/register" element={<RegistrationPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="*" element={<NotFoundPage />} />
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRoute>
+                  <ContactsPage />
+                </PrivateRoute>
+              }
+            />
           </Route>
+          <Route
+            path="/register"
+            element={
+              <RestricteRoute>
+                <RegistrationPage />{" "}
+              </RestricteRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestricteRoute>
+                <LoginPage />
+              </RestricteRoute>
+            }
+          />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </div>
-    </>
+      </Suspense>
+    </div>
   );
 };
 

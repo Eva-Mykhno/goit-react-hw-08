@@ -1,0 +1,7 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  box-shadow: 5px 5px 5x black;
+}

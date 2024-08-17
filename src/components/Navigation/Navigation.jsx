@@ -8,17 +8,15 @@ const Navigation = () => {
   };
 
   return (
-    <header>
-      <nav className={s.menu}>
-        <ul className={s.list}>
-          <li className={s.item}>
-            <NavLink className={buildLinkClass} to="/">
-              Home
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <div>
+      <ul className={s.list}>
+        <li className={s.item}>
+          <NavLink className={buildLinkClass} to="/">
+            Home
+          </NavLink>
+        </li>
+      </ul>
+    </div>
   );
 };
 

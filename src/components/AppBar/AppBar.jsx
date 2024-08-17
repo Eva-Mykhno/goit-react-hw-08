@@ -3,30 +3,35 @@ import AuthNav from "../AuthNav/AuthNav";
 import Navigation from "../Navigation/Navigation";
 import UserMenu from "../UserMenu/UserMenu";
 import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors";
+import s from "./AppBar.module.css";
 import { logoutThunk } from "../../redux/auth/operations";
 
 const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const user = useSelector(selectUser);
   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
 
   return (
-    <div>
-      <Navigation />
-      {isLoggedIn ? (
-        <h2>Welcome {user.name}!</h2> && <UserMenu /> && (
-          <button
-            type="submit"
-            onClick={() => {
-              dispatch(logoutThunk());
-            }}>
-            Exit
-          </button>
-        )
-      ) : (
-        <AuthNav />
-      )}
-    </div>
+    <header className={s.wrapper}>
+      <nav className={s.menu}>
+        <Navigation />
+        {isLoggedIn ? (
+          <div>
+            <h2>Welcome {user.name}!</h2>
+            <UserMenu />
+            <button
+              type="submit"
+              onClick={() => {
+                dispatch(logoutThunk());
+              }}>
+              Logout
+            </button>
+          </div>
+        ) : (
+          <AuthNav />
+        )}
+      </nav>
+    </header>
   );
 };
 
