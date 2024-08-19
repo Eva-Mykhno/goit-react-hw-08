@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { clearToken, setToken, swaggerApi } from "../../config/swaggerApi";
 
-export const registerThunk = createAsyncThunk(
+export const register = createAsyncThunk(
   "register",
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await swaggerApi.post("users/signup", credentials);
+      const { data } = await swaggerApi.post("/users/signup", credentials);
       setToken(data.token);
       return data;
     } catch (error) {
@@ -14,7 +14,7 @@ export const registerThunk = createAsyncThunk(
   }
 );
 
-export const loginThunk = createAsyncThunk(
+export const login = createAsyncThunk(
   "login",
   async (credentials, thunkAPI) => {
     try {
@@ -27,7 +27,7 @@ export const loginThunk = createAsyncThunk(
   }
 );
 
-export const logoutThunk = createAsyncThunk("logout", async (_, thunkAPI) => {
+export const logout = createAsyncThunk("logout", async (_, thunkAPI) => {
   try {
     await swaggerApi.post("/users/logout");
     clearToken();
@@ -36,7 +36,7 @@ export const logoutThunk = createAsyncThunk("logout", async (_, thunkAPI) => {
   }
 });
 
-export const getMeThunk = createAsyncThunk("getMe", async (_, thunkAPI) => {
+export const refreshUser = createAsyncThunk("getMe", async (_, thunkAPI) => {
   const savedToken = thunkAPI.getState().auth.token;
 
   if (savedToken === null) {

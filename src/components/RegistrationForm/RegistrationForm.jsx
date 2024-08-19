@@ -1,7 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { registerThunk } from "../../redux/auth/operations";
+import { register } from "../../redux/auth/operations";
 import s from "./RegistrationForm.module.css";
 
 const RegistrationForm = () => {
@@ -14,7 +14,7 @@ const RegistrationForm = () => {
   };
 
   const handleSubmit = (values, options) => {
-    dispatch(registerThunk(values));
+    dispatch(register(values));
     options.resetForm();
   };
 
@@ -48,7 +48,6 @@ const RegistrationForm = () => {
         <button type="submit" className={s.button}>
           Register
         </button>
-
         <p className={s.text}>
           You already have an account? <Link to="/login">Sign in</Link>
         </p>

@@ -6,6 +6,7 @@ import { fetchContacts } from "../../redux/contacts/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { selectError, selectLoading } from "../../redux/contacts/selectors";
 import s from "./ContactsPage.module.css";
+import Loader from "../../components/Loader/Loader";
 
 const ContactsPage = () => {
   const loading = useSelector(selectLoading);
@@ -20,7 +21,7 @@ const ContactsPage = () => {
     <div className={s.wrapper}>
       <ContactForm />
       <SearchBox />
-      {loading && <h2>Loading...</h2>}
+      {loading && <Loader />}
       {error && <h2>Something went wrong!</h2>}
       <ContactList />
     </div>

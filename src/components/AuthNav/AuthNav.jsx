@@ -5,12 +5,12 @@ const AuthNav = () => {
   return (
     <ul className={s.list}>
       <li className={s.item}>
-        <NavLink className={s.link} to="login">
+        <NavLink className={s.link} to="/login">
           Login
         </NavLink>
       </li>
       <li className={s.item}>
-        <NavLink className={s.link} to="register">
+        <NavLink className={s.link} to="/register">
           Register
         </NavLink>
       </li>

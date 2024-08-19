@@ -2,9 +2,9 @@ import s from "./App.module.css";
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMeThunk } from "./redux/auth/operations";
+import { refreshUser } from "./redux/auth/operations";
 import PrivateRoute from "./Routes/PrivateRoute";
-import RestricteRoute from "./Routes/RestrictedRoute";
+import RestrictedRoute from "./Routes/RestrictedRoute";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 import Loader from "./components/Loader/Loader";
 
@@ -21,7 +21,7 @@ const App = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getMeThunk());
+    dispatch(refreshUser());
   }, [dispatch]);
 
   return isRefreshing ? (
@@ -44,17 +44,17 @@ const App = () => {
           <Route
             path="/register"
             element={
-              <RestricteRoute>
-                <RegistrationPage />{" "}
-              </RestricteRoute>
+              <RestrictedRoute>
+                <RegistrationPage />
+              </RestrictedRoute>
             }
           />
           <Route
             path="/login"
             element={
-              <RestricteRoute>
+              <RestrictedRoute>
                 <LoginPage />
-              </RestricteRoute>
+              </RestrictedRoute>
             }
           />
           <Route path="*" element={<NotFoundPage />} />

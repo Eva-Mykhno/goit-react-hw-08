@@ -1,14 +1,26 @@
-.link {
-  text-decoration-line: none;
-  color: #90e366;
-  font-size: 32px;
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding-right: 40px;
 }
 
-.active {
+.title {
   color: aliceblue;
-  font-weight: 600;
 }
 
-.item {
-  font-size: 32px;
+.button {
+  text-decoration: none;
+  background-color: #90e366;
+  padding: 5px 10px;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  color: #22640b;
+}
+
+.button:hover,
+.button:focus {
+  background-color: aliceblue;
 }

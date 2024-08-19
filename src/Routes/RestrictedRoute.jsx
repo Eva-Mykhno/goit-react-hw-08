@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../redux/auth/selectors";
 import { Navigate, useLocation } from "react-router-dom";
 
-const RestricteRoute = ({ children }) => {
+const RestrictedRoute = ({ children }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const location = useLocation();
 
@@ -12,4 +12,4 @@ const RestricteRoute = ({ children }) => {
   return children;
 };
 
-export default RestricteRoute;
+export default RestrictedRoute;
