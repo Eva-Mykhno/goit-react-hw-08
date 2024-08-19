@@ -16,10 +16,11 @@ const AppBar = () => {
       <nav className={s.menu}>
         <Navigation />
         {isLoggedIn ? (
-          <div>
-            <h2>Welcome {user.name}!</h2>
+          <div className={s.container}>
+            <h2 className={s.title}>Welcome, {user.name}!</h2>
             <UserMenu />
             <button
+              className={s.button}
               type="submit"
               onClick={() => {
                 dispatch(logoutThunk());

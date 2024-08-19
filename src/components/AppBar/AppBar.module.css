@@ -1,7 +1,38 @@
 .wrapper {
+  width: 100vw;
+  height: 10vh;
+  background-color: #22640b;
+}
+.menu {
+  padding: 10px 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: start;
-  box-shadow: 5px 5px 5x black;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding-right: 40px;
+}
+
+.title {
+  color: #90e366;
+}
+
+.button {
+  text-decoration: none;
+  background-color: #90e366;
+  padding: 5px 10px;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  color: #22640b;
+}
+
+.button:hover,
+.button:focus {
+  background-color: rgb(193, 190, 190);
 }

@@ -6,9 +6,7 @@ import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import s from "./LoginForm.module.css";
 
 const LoginForm = () => {
-  // переадресация при логинизации
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  //
   const initialValues = {
     email: "",
     password: "",
@@ -21,11 +19,10 @@ const LoginForm = () => {
     options.resetForm();
   };
 
-  // переадресация при залогинении
   if (isLoggedIn) {
     return <Navigate to="/" />;
   }
-  //
+
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       <Form className={s.form}>

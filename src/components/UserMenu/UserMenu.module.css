@@ -1,23 +1,12 @@
 .link {
   text-decoration-line: none;
+  color: #90e366;
+  font-size: 32px;
 }
 
 .active {
-  color: rgb(189, 20, 20);
+  color: aliceblue;
   font-weight: 600;
-}
-
-.menu {
-  width: 100vw;
-  height: 10vh;
-  border-bottom: 2px solid black;
-  padding: 10px 20px;
-}
-
-.list {
-  display: flex;
-  gap: 20px;
-  list-style: none;
 }
 
 .item {

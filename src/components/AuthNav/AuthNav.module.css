@@ -1,0 +1,16 @@
+.list {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  text-decoration: none;
+  padding-right: 40px;
+}
+
+.item {
+  font-size: 32px;
+}
+
+.link {
+  text-decoration-line: none;
+  color: #90e366;
+}

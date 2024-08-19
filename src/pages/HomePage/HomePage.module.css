@@ -1,0 +1,21 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #90e366;
+  padding: 20px;
+}
+
+.title {
+  color: #22640b;
+  font-size: 52px;
+}
+
+.text {
+  color: #22640b;
+  font-size: 24px;
+}
